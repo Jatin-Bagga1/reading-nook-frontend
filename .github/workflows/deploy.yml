@@ -8,7 +8,7 @@ on:
 env:
   AWS_REGION: us-east-1
   ECR_REPO: reading-nook-frontend
-  ECS_CLUSTER: ReadingNook-Cluster
+  ECS_CLUSTER: ReadingNook-ECS-Cluster
   ECS_SERVICE: reading-nook-frontend-service
   ECS_TASK_DEF: reading-nook-frontend
   CONTAINER_NAME: frontend
