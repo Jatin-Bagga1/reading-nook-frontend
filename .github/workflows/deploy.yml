@@ -8,7 +8,7 @@ on:
 env:
   AWS_REGION: us-east-1
   ECR_REPO: reading-nook-frontend
-  ECS_CLUSTER: ReadingNook-Cluster
+  ECS_CLUSTER: ReadingNook-ECS-Cluster
   ECS_SERVICE: reading-nook-frontend-service
   ECS_TASK_DEF: reading-nook-frontend
   CONTAINER_NAME: frontend
@@ -39,6 +39,7 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
+          cd inft3200-frontend-main
           docker build -t $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG -t $ECR_REGISTRY/$ECR_REPO:latest .
           docker push $ECR_REGISTRY/$ECR_REPO:$IMAGE_TAG
           docker push $ECR_REGISTRY/$ECR_REPO:latest
